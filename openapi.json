@@ -5,7 +5,7 @@
     "title": "Situator API",
     "description": "Para mais informações, acesse: https://seventh.atlassian.net/wiki/spaces/SITAPI/overview"
   },
-  "host": "situator.entradasegura.com.br:80",
+  "host": "situator.entradasegura.com.br",
   "schemes": [
     "https"
   ],
