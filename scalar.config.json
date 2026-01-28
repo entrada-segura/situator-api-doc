@@ -1,0 +1,30 @@
+{
+  "$schema": "https://cdn.scalar.com/schema/scalar-config.json",
+  "subdomain": "situator-api",
+  "guides": [
+    {
+      "name": "Situator API Guides",
+      "sidebar": [
+        { "path": "docs/introduction.md", "type": "page" },
+        { "path": "docs/architecture.md", "type": "page" },
+        { "path": "docs/authentication.md", "type": "page" },
+        { "path": "docs/people.md", "type": "page" },
+        { "path": "docs/access-permissions.md", "type": "page" },
+        { "path": "docs/zones.md", "type": "page" },
+        { "path": "docs/credentials.md", "type": "page" },
+        { "path": "docs/remote-events.md", "type": "page" },
+        { "path": "docs/visit-scheduling.md", "type": "page" },
+        { "path": "docs/synchronization.md", "type": "page" },
+        { "path": "docs/webhooks.md", "type": "page" },
+        { "path": "docs/reports.md", "type": "page" },
+        { "path": "docs/glossary.md", "type": "page" }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "API Reference",
+      "path": "openapi.json"
+    }
+  ]
+}
