@@ -1,50 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
-import Head from '@docusaurus/Head';
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
-export default function ApiReference(): React.ReactElement {
-  const openApiUrl = useBaseUrl('/openapi.json');
+function ScalarApiReference(): React.ReactElement {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Remove any existing script
+    const existingScript = document.getElementById('api-reference');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    // Create the script element with proper Scalar attributes
     const script = document.createElement('script');
+    script.id = 'api-reference';
+    script.setAttribute('data-url', '/situator-api-doc/openapi.json');
+    script.setAttribute('data-proxy-url', 'https://proxy.scalar.com');
     script.src = 'https://cdn.jsdelivr.net/npm/@scalar/api-reference';
-    script.async = true;
-    document.body.appendChild(script);
+
+    containerRef.current.appendChild(script);
+
     return () => {
-      document.body.removeChild(script);
+      const scriptToRemove = document.getElementById('api-reference');
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
     };
   }, []);
 
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        minHeight: 'calc(100vh - 60px)',
+        width: '100%'
+      }}
+    />
+  );
+}
+
+export default function ApiReferencePage(): React.ReactElement {
   return (
     <Layout
       title="API Reference"
       description="Situator API Reference - Interactive OpenAPI documentation"
     >
-      <Head>
-        <style>{`
-          .main-wrapper {
-            display: flex;
-            flex-direction: column;
-          }
-          #scalar-api-reference {
-            flex: 1;
-            min-height: calc(100vh - 60px);
-          }
-        `}</style>
-      </Head>
-      <div
-        id="scalar-api-reference"
-        data-url={openApiUrl}
-        data-configuration={JSON.stringify({
-          theme: 'purple',
-          layout: 'modern',
-          isEditable: false,
-          showSidebar: true,
-          hideModels: false,
-          hideDownloadButton: false,
-        })}
-      />
+      <BrowserOnly fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading API Reference...</div>}>
+        {() => <ScalarApiReference />}
+      </BrowserOnly>
     </Layout>
   );
 }
