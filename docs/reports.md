@@ -50,7 +50,7 @@ ou
 | `selectedPersonTypes` | 0=nenhum, 1=empregado, 2=morador, 3=visitante, 4=prestador |
 | `selectedPersonProfiles` | Array de IDs de perfil de acesso |
 | `selectedZones` | Array de zoneId |
-| `selectedDoors` | Array de {serverId, doorId} |
+| `selectedDoors` | Array de objetos com serverId e doorId |
 | `selectedUnits` | Array de unitId |
 | `selectedVehicles` | Array de vehicleId |
 | `selectedSituations` | 0=entrada autorizada, 1=saída autorizada, 2=entrada negada, 3=saída negada, 4=entrada coagida, 5=saída coagida |

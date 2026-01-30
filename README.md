@@ -1,65 +1,50 @@
 # Situator API Documentation
 
-Documentation for the Situator API - an access control and security monitoring system.
+Documentação bilíngue (PT-BR/EN) da API Situator para controle de acesso e monitoramento de segurança.
+
+Bilingual documentation (PT-BR/EN) for the Situator access control and security monitoring API.
+
+## 🌐 Live Site
+
+**https://entrada-segura.github.io/situator-api-doc/**
+
+## Features
+
+- 📖 **Guides** - Step-by-step documentation in Portuguese and English
+- 🔧 **API Reference** - Interactive OpenAPI documentation with Scalar
+- 🌍 **i18n** - Full internationalization (PT-BR and English)
+- 🔍 **Search** - Full-text search across all documentation
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
+```
 
 ## Structure
 
 ```
 situator-api-doc/
-├── scalar.config.json    # Scalar docs configuration
-├── openapi.json          # OpenAPI/Swagger specification
-├── docs/                 # Guide pages
-│   ├── introduction.md
-│   ├── architecture.md
-│   ├── authentication.md
-│   ├── people.md
-│   ├── access-permissions.md
-│   ├── zones.md
-│   ├── credentials.md
-│   ├── remote-events.md
-│   ├── visit-scheduling.md
-│   ├── synchronization.md
-│   ├── webhooks.md
-│   ├── reports.md
-│   └── glossary.md
-└── README.md
+├── docs/                    # Portuguese documentation (default)
+├── i18n/en/                 # English translations
+├── static/openapi.json      # OpenAPI specification
+├── src/pages/
+│   └── api-reference.tsx    # Scalar API Reference page
+└── docusaurus.config.ts     # Docusaurus configuration
 ```
 
 ## Deployment
 
-### Option 1: Scalar Docs Platform (Recommended)
-
-1. Connect this repository to [Scalar](https://scalar.com)
-2. Configure GitHub Sync in Scalar dashboard
-3. Your docs will be available at `https://situator-api.apidocumentation.com`
-
-### Option 2: GitHub Pages (Manual)
-
-For a static GitHub Pages deployment, create an `index.html`:
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Situator API</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href="https://scalar.com/favicon.svg" />
-</head>
-<body>
-  <script
-    id="api-reference"
-    data-url="./openapi.json"
-    data-configuration='{"theme": "purple"}'
-  ></script>
-  <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
-</body>
-</html>
-```
-
-Then enable GitHub Pages in repository settings.
+Automatically deployed to GitHub Pages via GitHub Actions on push to `main` branch.
 
 ## Links
 
-- [Situator API](https://situator.entradasegura.com.br)
+- [Situator](https://situator.entradasegura.com.br)
 - [Confluence Documentation](https://seventh.atlassian.net/wiki/spaces/SITAPI/overview)
